@@ -354,5 +354,20 @@ def plot():
     
     plt.savefig('epdf_plot.pdf', format='pdf')
 
+x = np.array([i for i in range(100, 1001, 50)])
+arr = np.load('arrays/p_val_RandomRootedPlaneTrees.npy')
+
+fig, ax = plt.subplots(1, 1, figsize=(5,5))
+ax.plot(x, arr, 's-', label='P-value')
+ax.set_xlabel('Number $N$ of nodes')
+ax.set_ylabel('P-value')
+ax.axhline(y=0.05, color='r', linestyle='--', label='Significance level, 0.05')
+# Adding legend
+ax.legend(loc='upper left')
+
+# Adding title
+ax.set_title('P-values for rooted plane trees')
+fig.savefig('p_vals.pdf',format='pdf')
+
 
 
